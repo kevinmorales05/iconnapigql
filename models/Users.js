@@ -12,7 +12,7 @@ const UserSchema = new mongoose.Schema({
   },
   birthday: {
     type: String,
-    required: true,
+    required: false,
   },
   email: {
     type: String,
@@ -32,34 +32,37 @@ const UserSchema = new mongoose.Schema({
   },
   telephone: {
     type: String,
-    required: true,
+    required: false,
     trim: true,
   },
-  address: {
+  gender: {
     type: String,
-    required: true,
+    required: false,
   },
-  locationGPS: {
-    type: String,
+  privacy: {
+    type: Boolean,
     required: true,
-  },
-  city: {
-    type: String,
-    required: true,
-  },
-  province: {
-    type: String,
-    required: true,
-  },
-  country: {
-    type: String,
-    required: true,
+    default: false,
   },
   status: {
     type: Boolean,
     required: false,
     default: true,
   },
+  address: {
+    type: String,
+    required: false,
+  },
+  latitude: {
+    type: Number,
+    required: false,
+    default: null
+  },
+  longitude:{
+    type: Number,
+    required: false,
+    default: null
+  }
 });
 
 module.exports = mongoose.model("User", UserSchema);
